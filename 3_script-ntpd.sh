@@ -24,10 +24,12 @@ chmod 644 /etc/ntp.conf
 echo -en "driftfile /var/lib/ntp/ntp.drift\n#logfile /var/log/ntpstats\n#statsdir /var/log/ntpstats/\n" >> /etc/ntp.conf
 echo -en "statistics loopstats peerstats clockstats\nfilegen loopstats file loopstats type day enable\n" >> /etc/ntp.conf
 echo -en "filegen peerstats file peerstats type day enable\nfilegen clockstats file clockstats type day enable\n" >> /etc/ntp.conf
-echo -en "server ntp1.stratum2.ru\nserver ntp2.stratum2.ru\nserver ntp3.stratum2.ru\n" >> /etc/ntp.conf
-echo -en "server ntp4.stratum2.ru\nserver ntp5.stratum2.ru\npool 0.ru.pool.ntp.org\n" >> /etc/ntp.conf
-echo -en "pool 1.ru.pool.ntp.org\npool 2.ru.pool.ntp.org\npool 3.ru.pool.ntp.org\n" >> /etc/ntp.conf
+echo -en "server ntp1.stratum2.ru iburst\nserver ntp2.stratum2.ru iburst\nserver ntp3.stratum2.ru iburst\n" >> /etc/ntp.conf
+echo -en "server ntp4.stratum2.ru iburst\nserver ntp5.stratum2.ru iburst\npool 0.ru.pool.ntp.org iburst\n" >> /etc/ntp.conf
+echo -en "pool 1.ru.pool.ntp.org iburst\npool 2.ru.pool.ntp.org iburst\npool 3.ru.pool.ntp.org iburst\n" >> /etc/ntp.conf
 echo -en "pool 0.europe.pool.ntp.org\npool 1.europe.pool.ntp.org\nrestrict default ignore\n" >> /etc/ntp.conf
+echo -en "restrict ntp1.stratum2.ru	nomodify notrap\nrestrict ntp2.stratum2.ru	nomodify notrap\n" >> /etc/ntp.conf
+echo -en "restrict ntp3.stratum2.ru	nomodify notrap\nrestrict ntp4.stratum2.ru	nomodify notrap\nrestrict ntp5.stratum2.ru	nomodify notrap\n" >> /etc/ntp.conf
 echo -en "restrict 0.ru.pool.ntp.org		nomodify notrap\nrestrict 1.ru.pool.ntp.org		nomodify notrap\n" >> /etc/ntp.conf
 echo -en "restrict 2.ru.pool.ntp.org		nomodify notrap\nrestrict 3.ru.pool.ntp.org		nomodify notrap\n" >> /etc/ntp.conf
 echo -en "restrict 0.europe.pool.ntp.org		nomodify notrap\nrestrict 1.europe.pool.ntp.org		nomodify notrap\n" >> /etc/ntp.conf
