@@ -21,19 +21,23 @@ ntpstat - отображает состояние NTP<br>
 **Работа со скриптами:**
 1. На сервер загружаем скрипт 0_script-prepare.sh (и ключ authorized_keys) через терминал.
 ```bash
-$ scp 0_script-prepare.sh root@айпи:~
+scp 0_script-prepare.sh root@айпи:~
 ```
 2. Подключаемся по ssh, устанавливаем права на запуск скрипта, запускаем скрипт.
 ```bash
-$ ssh root@айпи
-# chmod +x 0_script-prepare.sh
-# ./0_script-prepare.sh
+ssh root@айпи
+chmod +x 0_script-prepare.sh
+./0_script-prepare.sh
 ```
 Скачаются скрипты установки ПО и генерации конфига с github.
 
-3. Запускаем скрипты по очереди.
+3. Обновите скрипт 2: установите свою временную зону (стр. 11).<br>
+Обновите скрипт 3: установите свою подсеть (стр.37).
+
+4. Запускаем скрипты по очереди.
 ```bash
-# ./1_script-upgrade.sh
-# ./2_script-install.sh
-# ./3_script-ntpd.sh
+./1_script-upgrade.sh
+./2_script-install.sh
+./3_script-ntpd.sh
 ```
+На этом установка и настройка закончена.
