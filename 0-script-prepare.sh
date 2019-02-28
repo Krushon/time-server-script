@@ -20,7 +20,7 @@ printf "\033c"
 #chmod 644 /etc/ssh/sshd_config
 ####
 wget https://raw.githubusercontent.com/Krushon/time-server-script/master/1_script-upgrade.sh
-wget https://raw.githubusercontent.com/Krushon/time-server-script/master/2_script-install.sh
+wget https://raw.githubusercontent.com/Krushon/time-server-script/master/2-script-install.sh
 wget https://raw.githubusercontent.com/Krushon/time-server-script/master/3_script-ntpd.sh
 chmod +x 1_script-upgrade.sh 2_script-install.sh 3_script-ntpd.sh
 echo
