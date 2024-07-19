@@ -1,12 +1,13 @@
 #!/bin/bash
-# Устанавливаем пакеты OpenVPN, MidnightCommander, почтовые утилиты и NTP для синхронизации часов.
+# Устанавливаем пакеты MidnightCommander, сетевые утилиты и NTPsec для синхронизации часов.
 SECONDS=0
 printf "\033c"
+systemctl stop systemd-timesyncd
+systemctl disable systemd-timesyncd
 echo "Устанавливаем необходимое ПО..."
-apt-get update
-apt-get install mc net-tools ntp ntpdate ntpstat -y
-apt-get autoclean && apt-get clean
-/etc/init.d/ntp stop
+apt update
+apt install mc net-tools ntpsec -y
+apt autoclean && apt clean
 # Изменяем временную зону на свою
 ln -sf /usr/share/zoneinfo/Europe/Moscow /etc/localtime
 echo
